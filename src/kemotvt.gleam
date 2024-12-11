@@ -544,15 +544,15 @@ fn view(model: Model) {
           ]),
         ]),
       ]),
-      element.element(
-        "tiptap-editor",
-        sketch.class([]),
-        [
-          // attribute.attribute("content", model.text_editor_content),
-        // event.on("content-update", content_updated),
-        ],
-        [],
-      ),
+      // element.element(
+    //   "tiptap-editor",
+    //   sketch.class([]),
+    //   [
+    //     // attribute.attribute("content", model.text_editor_content),
+    //   // event.on("content-update", content_updated),
+    //   ],
+    //   [],
+    // ),
     ],
   )
 }
