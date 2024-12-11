@@ -58,9 +58,9 @@ fn init(_flags) -> #(Model, Effect(Msg)) {
   #(
     Model(
       kanban: Some([
-        Some(["todo", "eat"]),
-        Some(["in_progress", "drink"]),
-        Some(["done", "coding"]),
+        Some(["لم نبدأ العمل عليها", "تجهيز دورات صحية"]),
+        Some(["لم تكتمل بعد", "بناء مبنى 104"]),
+        Some(["تم الانتهاء منها", "تجهيز غرفة الحاسب في مبنى 114"]),
       ]),
       new_task_input: "",
       // text_editor_content: "<h1>hello</h1>",
@@ -532,14 +532,14 @@ fn view(model: Model) {
             }),
           ),
           html.div(kanban_block(), [], [
-            html.div(block_title(), [], [html.text("add a new board")]),
+            html.div(block_title(), [], [html.text("قم بإضافة قائمة")]),
             html.input(add_task_input(), [
               attribute.type_("text"),
               attribute.value(model.new_task_input),
               event.on_input(UpdateNewTask),
             ]),
             html.button(add_board_button(), [event.on_click(AddBoard)], [
-              html.text("Add board"),
+              html.text("أضف قائمة"),
             ]),
           ]),
         ]),
@@ -573,7 +573,7 @@ fn kanaban_board_element(
       event.on_input(UpdateNewTask),
     ]),
     html.button(add_task_button(), [event.on_click(AddTask(title))], [
-      html.text("Add Task"),
+      html.text("أضف مهمة"),
     ]),
     element.fragment(
       model_kanban

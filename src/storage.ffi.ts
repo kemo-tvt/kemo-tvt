@@ -4,7 +4,7 @@ import PartySocket from "partysocket";
 
 // connect to our server
 const partySocket = new PartySocket({
-    host: "local_host:1999",
+    host: "https://collaborate.kemo-1.partykit.dev",
     room: "my-room"
 });
 // partySocket.addEventListener("connect", (e) => {
