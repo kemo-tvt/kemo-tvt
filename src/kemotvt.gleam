@@ -528,14 +528,14 @@ fn view(model: Model) {
             }),
           ),
           html.div(kanban_block(), [], [
-            html.div(block_title(), [], [html.text("قم بإضافة قائمة")]),
+            html.div(block_title(), [], [html.text("New Board")]),
             html.input(add_task_input(), [
               attribute.type_("text"),
               attribute.value(model.new_task_input),
               event.on_input(UpdateNewTask),
             ]),
             html.button(add_board_button(), [event.on_click(AddBoard)], [
-              html.text("أضف قائمة"),
+              html.text("Add a board"),
             ]),
           ]),
         ]),
@@ -569,7 +569,7 @@ fn kanaban_board_element(
       event.on_input(UpdateNewTask),
     ]),
     html.button(add_task_button(), [event.on_click(AddTask(title))], [
-      html.text("أضف مهمة"),
+      html.text("Add a Task"),
     ]),
     element.fragment(
       model_kanban

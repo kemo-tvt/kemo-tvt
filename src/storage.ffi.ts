@@ -9,8 +9,8 @@ import * as Y from "yjs";
 const yDoc = new Y.Doc();
 
 const provider = new YPartyKitProvider(
-    "https://store.kemo-1.partykit.dev",
-    "my-document",
+    "https://demo.kemo-1.partykit.dev",
+    "demo",
     yDoc
 );
 

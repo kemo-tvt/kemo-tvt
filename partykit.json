@@ -1,6 +1,6 @@
 {
   "$schema": "https://www.partykit.io/schema.json",
-  "name": "store",
+  "name": "demo",
   "main": "party/index.ts",
   "compatibilityDate": "2024-12-02",
   "serve": {
