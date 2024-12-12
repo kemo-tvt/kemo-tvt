@@ -9,6 +9,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        SUPABASE_KEY: ${{ secrets.SUPABASE_KEY  }}  
+        PARTYKIT_TOKEN: ${{ secrets.PARTYKIT_TOKEN }}
+        PARTYKIT_LOGIN: ${{ secrets.PARTYKIT_LOGIN  }} 
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,9 +28,6 @@ jobs:
 
       - run: gleam deps download 
       - uses: actions/setup-node@v4
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY  }}   
         with:
           node-version: 22
           cache: "npm"
@@ -33,6 +35,4 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npx partykit deploy
-        env:      
-          PARTYKIT_TOKEN: ${{ secrets.PARTYKIT_TOKEN }}
-          PARTYKIT_LOGIN: ${{ secrets.PARTYKIT_LOGIN  }}
+    
