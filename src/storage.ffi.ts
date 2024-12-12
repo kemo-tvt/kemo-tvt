@@ -1,29 +1,38 @@
 //@ts-ignore
 import { Ok, Error } from './gleam.mjs';
-import PartySocket from "partysocket";
+
 
 // connect to our server
-const partySocket = new PartySocket({
-    host: "https://collaborate.kemo-1.partykit.dev",
-    room: "my-room"
-});
-// partySocket.addEventListener("connect", (e) => {
+import YPartyKitProvider from "y-partykit/provider";
+import * as Y from "yjs";
 
-// })
-partySocket.addEventListener("message", (e) => {
+const yDoc = new Y.Doc();
 
-    window.localStorage.setItem("kanban", e.data)
+const provider = new YPartyKitProvider(
+    "localhost:1999",
+    "my-document",
+    yDoc
+);
+
+provider.doc.on("update", () => {
+
+    let array = provider.doc.getMap('data').get('kanban');
+    let json_array = JSON.stringify(array);
+    window.localStorage.setItem("kanban", json_array)
+
     document.getElementById("websocket_element")?.dispatchEvent(
         new CustomEvent('content-updated', {
             detail: {
-                kanban: JSON.parse(e.data)
+                kanban: array
             },
             bubbles: true, // Allows the event to bubble up the DOM
             composed: true, // Allows the event to cross the shadow DOM boundary (if present)
         })
     );
 
-});
+})
+
+
 export function read_local_storage(key) {
     const value = window.localStorage.getItem(key)
 
@@ -37,8 +46,15 @@ export function read_local_storage(key) {
 export function write_local_storage(key, value) {
 
 
+    // yDoc.transact(
+    //     => (),    yDoc.getArray("kanban").push(value)
+
+
+    // )
+    yDoc.getMap("data").set("kanban", value)
     const value2 = JSON.stringify(value)
-    partySocket.send(value2);
+
+    // partySocket.send(value2);
 
     window.localStorage.setItem(key, value2)
 }

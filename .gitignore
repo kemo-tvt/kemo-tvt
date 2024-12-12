@@ -6,3 +6,4 @@ node_modules
 dist
 .partykit
 cursor-party
+.env

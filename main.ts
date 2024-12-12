@@ -1,3 +1,5 @@
+//@ts-ignore
+
 import { main } from './src/kemotvt.gleam'
 
 import { TiptapEditor } from './src/editor/index'

@@ -2,18 +2,22 @@
   "scripts": {
     "dev": "vite",
     "server": "partykit dev",
-    "build": "tsc && vite build"
+    "build": "vite build"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.47.6",
     "@tiptap/core": "^2.10.3",
     "@tiptap/pm": "^2.10.3",
     "@tiptap/starter-kit": "^2.10.3",
     "partysocket": "1.0.2",
     "typescript": "^5.7.2",
     "vite": "^6.0.0",
-    "vite-gleam": "^0.4.3"
+    "vite-gleam": "^0.4.3",
+    "y-partykit": "^0.0.32",
+    "yjs": "^13.6.20"
   },
   "devDependencies": {
+    "@types/node": "^22.10.2",
     "partykit": "0.0.111",
     "vite-plugin-pwa": "^0.21.0"
   }
