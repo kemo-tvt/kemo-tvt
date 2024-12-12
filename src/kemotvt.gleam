@@ -57,11 +57,7 @@ fn do_write_localstorage(_key: String, _value: Array(Array(String))) -> Nil {
 fn init(_flags) -> #(Model, Effect(Msg)) {
   #(
     Model(
-      kanban: Some([
-        Some(["لم نبدأ العمل عليها", "تجهيز دورات صحية"]),
-        Some(["لم تكتمل بعد", "بناء مبنى 104"]),
-        Some(["تم الانتهاء منها", "تجهيز غرفة الحاسب في مبنى 114"]),
-      ]),
+      kanban: None,
       new_task_input: "",
       // text_editor_content: "<h1>hello</h1>",
     ),
