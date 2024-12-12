@@ -34,6 +34,12 @@ provider.doc.on("update", () => {
 
 
 export function read_local_storage(key) {
+
+    let array = provider.doc.getMap('data').get('kanban');
+
+    let json_array = JSON.stringify(array);
+    window.localStorage.setItem("kanban", json_array)
+
     const value = window.localStorage.getItem(key)
 
     let string = JSON.parse(value!)
