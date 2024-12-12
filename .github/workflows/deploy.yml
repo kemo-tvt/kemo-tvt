@@ -17,6 +17,16 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_DEBUG: false
+          envkey_SOME_API_KEY: "123456abcdef"
+          envkey_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          envkey_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+
+          file_name: .env
+
+
       - uses: erlef/setup-beam@v1
         with:
           otp-version: "27.2.0"
