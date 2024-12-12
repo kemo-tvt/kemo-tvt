@@ -10,8 +10,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-        SUPABASE_KEY: ${{ secrets.SUPABASE_KEY  }}  
         PARTYKIT_TOKEN: ${{ secrets.PARTYKIT_TOKEN }}
         PARTYKIT_LOGIN: ${{ secrets.PARTYKIT_LOGIN  }} 
     steps:
@@ -34,5 +32,5 @@ jobs:
     
       - run: npm ci
       - run: npm run build
-      - run: npx partykit deploy --var SUPABASE_URL=$SUPABASE_URL --var SUPABASE_KEY=$SUPABASE_KEY
+      - run: npx partykit deploy --var SUPABASE_URL=${{ secrets.SUPABASE_URL }} --var SUPABASE_KEY=${{ secrets.SUPABASE_KEY  }}
     
