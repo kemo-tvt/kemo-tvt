@@ -42,5 +42,5 @@ jobs:
     
       - run: npm ci
       - run: npm run build
-      - run: npx partykit deploy --var SUPABASE_URL=${{ secrets.SUPABASE_URL }} --var SUPABASE_KEY=${{ secrets.SUPABASE_KEY  }}
+      - run: npx partykit deploy 
     
