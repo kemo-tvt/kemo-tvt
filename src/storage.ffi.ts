@@ -40,13 +40,13 @@ export function read_local_storage(key) {
     let json_array = JSON.stringify(array);
     window.localStorage.setItem("kanban", json_array)
 
-    const value = window.localStorage.getItem(key)
+    // const value = window.localStorage.getItem(key)
 
-    let string = JSON.parse(value!)
+    // let string = JSON.parse(value!)
 
     // console.log(string)
 
-    return string ? new Ok(string) : new Error(undefined);
+    return array ? new Ok(array) : new Error(undefined);
 }
 
 export function write_local_storage(key, value) {
